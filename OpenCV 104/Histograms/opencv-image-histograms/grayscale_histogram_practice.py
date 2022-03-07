@@ -1,5 +1,5 @@
 # USAGE
-# python grayscale_histogram.py --image beach.png
+# python grayscale_histogram_practice.py --image beach.png
 
 # import the necessary packages
 from matplotlib import pyplot as plt
@@ -17,30 +17,30 @@ image = cv2.imread(args["image"])
 image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # compute a grayscale histogram
-hist = cv2.calcHist([image], [0], None, [256], [0, 256])
+hist = cv2.calcHist([image], [0], None, [256], [0,255])
 
-# matplotlib expects RGB images so convert and then display the image
-# with matplotlib
+# matplotlib expects RGB images so convert and then display the image with 
+# matplotlib
 plt.figure()
 plt.axis("off")
-plt.imshow(cv2.cvtColor(image, cv2.COLOR_GRAY2RGB))
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
 
 # plot the histogram
 plt.figure()
-plt.title("Grayscale Histogram")
+plt.title("Graysale Histogram")
 plt.xlabel("Bins")
 plt.ylabel("# of Pixels")
 plt.plot(hist)
 plt.xlim([0, 256])
 
-# normalize the histogram
+# normalize the histrogram
 hist /= hist.sum()
 
-# plot the normalized histogram
+#plot the histogram
 plt.figure()
-plt.title("Grayscale Histogram (Normalized)")
+plt.title("Graysale Histogram [Normalized]")
 plt.xlabel("Bins")
-plt.ylabel("% of Pixels")
+plt.ylabel("# of Pixels")
 plt.plot(hist)
 plt.xlim([0, 256])
 plt.show()
