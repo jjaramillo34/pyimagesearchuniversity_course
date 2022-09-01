@@ -11,7 +11,7 @@ ap.add_argument("-i", "--image", required=True,
     help="path to the input image")
 args = vars(ap.parse_args())
 
-# load image, convert to grayscale, and dispaly it to out screen
+# load image, convert to grayscale, and display it to out screen
 image = cv2.imread(args["image"])
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 cv2.imshow("Original", image)

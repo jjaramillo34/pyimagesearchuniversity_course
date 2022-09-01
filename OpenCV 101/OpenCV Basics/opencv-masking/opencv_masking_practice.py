@@ -34,7 +34,7 @@ mask = np.zeros(image.shape[:2], dtype="uint8")
 cv2.circle(mask, (145, 200), 100, 255, -1)
 masked = cv2.bitwise_and(image, image, mask=mask)
 
-# show th eoutput images
+# show the output images
 cv2.imshow("Circular Mask", mask)
 cv2.imshow("Mask Applied to image", masked)
 cv2.waitKey(0)
